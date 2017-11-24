@@ -1,11 +1,22 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent { docker 'gradle:4.2.1' }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'gradle --version'
             }
+        }
+    }
+    post{
+        success {
+            echo 'El pipeline se ejecuto exitosamente'
+        }
+        failure {
+            echo 'Ha ocurrido un error en la ejecucion del pipeline'
+        }
+        changed {
+            echo 'El estado ha cambiado revisar'
         }
     }
 }
