@@ -1,6 +1,6 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { any 'gradle:4.2.1' }
+    agent any
     stages {
         stage('build') {
             steps {
