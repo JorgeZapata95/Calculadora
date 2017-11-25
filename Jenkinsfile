@@ -1,10 +1,10 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker 'gradle:4.2.1' }
+    agent { any 'gradle:4.2.1' }
     stages {
         stage('build') {
             steps {
-                sh 'gradle --version'
+                sh './gradlew build'
             }
         }
     }
